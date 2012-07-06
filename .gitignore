@@ -19,3 +19,4 @@ doc/
 
 # Redcar Garbage
 */.redcar
+*.DS_Store
