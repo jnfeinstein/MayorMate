@@ -1,5 +1,7 @@
 class CheckinsController < ApplicationController
   
+  include Geokit::Geocoders
+  
   def index
     @checkins = current_user.checkins
 
@@ -27,11 +29,12 @@ class CheckinsController < ApplicationController
     if params[:name] && params[:address]
       @name = params[:name]
       @address = params[:address]
+      res = MultiGeocoder.geocode(@address)
       foursquare = Foursquare::Base.new(current_user.access_code.code)
       @venues = foursquare.venues.search(
         :query => @name, 
         #:near => @address,
-        :ll => "32.86,-117.21",
+        :ll => res.ll,
         :llAcc => "1")
     end
   end
