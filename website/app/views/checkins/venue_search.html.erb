@@ -1,0 +1,33 @@
+<h1>Select a Venue</h1>
+
+<%= form_tag(nil, :method => "get") do %>
+
+  <div class="field">
+    <%= label_tag(:name, "Name:") %>
+    <%= text_field_tag(:name) %>
+  </div>
+  <div class="field">
+    <%= label_tag(:address, "Address:") %>
+    <%= text_field_tag(:address) %>
+  </div>
+  <div class="actions">
+    <%= submit_tag("Search") %>
+  </div>
+  
+<% end %>
+
+<% if @venues && @name && @address%>
+<p><%= "Query for '#{@name}' near '#{@address}'"%></p>
+<table>
+  <% @venues["places"].each do |venue| %>
+    <%= form_tag({:action => "set_time"}, :method => "get") do %>
+    <tr>
+      <%= hidden_field_tag(:venue_id, venue.id) %>
+      <td><%= submit_tag("Select") %></td>
+      <td><%= image_tag(venue.icon) %></td>  
+      <td><%= venue.name %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>
+<% end %>

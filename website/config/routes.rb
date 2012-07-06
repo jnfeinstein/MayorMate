@@ -1,6 +1,13 @@
 Website::Application.routes.draw do
   devise_for :users
   resources :access_codes
+  resources :checkins do
+    collection do
+      get 'venue_search'
+      get 'set_time'
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20120706072552) do
 
   create_table "checkins", :force => true do |t|
     t.string   "venue"
+    t.string   "address"
+    t.string   "venue_id"
     t.string   "time"
     t.boolean  "enabled"
     t.integer  "user_id"
