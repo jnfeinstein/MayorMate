@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120705084511) do
+ActiveRecord::Schema.define(:version => 20120706072552) do
 
   create_table "access_codes", :force => true do |t|
     t.string   "code"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(:version => 20120705084511) do
   end
 
   add_index "access_codes", ["user_id"], :name => "index_access_codes_on_user_id", :unique => true
+
+  create_table "checkins", :force => true do |t|
+    t.string   "venue"
+    t.string   "time"
+    t.boolean  "enabled"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "checkins", ["user_id"], :name => "index_checkins_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

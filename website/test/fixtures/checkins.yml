@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  venue: MyString
+  time: MyString
+  enabled: false
+  user: 
+
+two:
+  venue: MyString
+  time: MyString
+  enabled: false
+  user: 
