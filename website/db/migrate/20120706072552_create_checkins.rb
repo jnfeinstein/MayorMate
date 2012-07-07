@@ -4,6 +4,7 @@ class CreateCheckins < ActiveRecord::Migration
       t.string :venue_id
       t.string :time
       t.string :job_id
+      t.integer :count, :default => 0
       t.references :user
 
       t.timestamps

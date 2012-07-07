@@ -13,6 +13,7 @@ module CheckinsHelper
   def perform_checkin(checkin)
     foursquare = Foursquare::Base.new(current_user.access_code.code)
     foursquare.checkins.add(:venueId => checkin.venue_id, :broadcast => "public")
+    checkin.count += 1
   end
   
   def schedule_checkin(checkin)
