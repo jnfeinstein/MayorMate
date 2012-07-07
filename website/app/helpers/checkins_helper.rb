@@ -1,5 +1,7 @@
 module CheckinsHelper
   
+  include Geokit::Geocoders
+  
   @@scheduler = Rufus::Scheduler.start_new 
     
   def get_checkin_venue(checkin)
@@ -12,9 +14,20 @@ module CheckinsHelper
     return "#{loc.address}, #{loc.city}, #{loc.state}"
   end
   
+  def get_venue_gps_ll(venue)
+    address = get_venue_address(venue)
+    res = MultiGeocoder.geocode(address)
+    return res.ll
+  end
+  
   def perform_checkin(checkin)
     foursquare = Foursquare::Base.new(current_user.access_code.code)
-    foursquare.checkins.add(:venueId => checkin.venue_id, :broadcast => "public")
+    venue = get_checkin_venue(checkin)
+    foursquare.checkins.add(
+      :venueId => checkin.venue_id, 
+      :ll => get_venue_gps_ll(venue),
+      :llAcc => 1,
+      :broadcast => "public")
     checkin.count += 1
     checkin.save
   end

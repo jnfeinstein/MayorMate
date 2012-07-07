@@ -30,7 +30,7 @@ class CheckinsController < ApplicationController
         :query => @name, 
         #:near => @address,
         :ll => res.ll,
-        :llAcc => "1")
+        :llAcc => 1)
     end
   end
   
