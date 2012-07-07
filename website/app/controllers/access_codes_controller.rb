@@ -1,6 +1,6 @@
 class AccessCodesController < ApplicationController
   
-  CallbackUrl = "http://localhost:3000/access_codes/new".freeze
+  CallbackUrl = "http://joelf.me/access_codes/new".freeze
   OAuthID = "YTRDZFMWBREGWX4MUUAKUPFDZXU3TUVIWZ3HQY3UGITW1K3Y".freeze
   OAuthSecret = "AKBXY1M3PKL05TR0BHO1BE34W0U5OCWU54OOZZGU5503TMK0".freeze
   def index
