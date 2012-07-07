@@ -26,6 +26,13 @@ module CheckinsHelper
       perform_checkin(checkin)
     end
     checkin.job_id = job.job_id
+    checkin.save
+  end
+  
+  def schedule_all_checkins
+    Checkin.all.each do |checkin|
+      schedule_checkin(checkin)
+    end
   end
   
   def get_scheduled_job(checkin)
