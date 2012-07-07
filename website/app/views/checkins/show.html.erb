@@ -1,0 +1,29 @@
+<% venue = get_checkin_venue(@checkin)%>
+<% job = $scheduler.find(@checkin.job_id) %>
+<h1>Checkin Details</h1>
+<table>
+  <tr>
+    <td>Name</td>
+    <td><%= venue.name %></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><%= get_venue_address(venue) %></td>
+  </tr>
+  <tr>
+    <td>Time</td>
+    <td><%= @checkin.time %></td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Last</td>
+    <td><%= job.last %></td>
+  </tr>
+  <tr>
+    <td>Next</td>
+    <td><%= job.next_time %></td>  
+  </tr>
+</table>

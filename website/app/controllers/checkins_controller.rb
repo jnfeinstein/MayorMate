@@ -1,28 +1,23 @@
 class CheckinsController < ApplicationController
   
   include Geokit::Geocoders
+  include CheckinsHelper
   
   def index
     @checkins = current_user.checkins
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @posts }
-    end
   end
   
   def show
-    
+    @checkin = Checkin.find(params[:id])
   end
   
   def new
-    @checkin = Checkin.new
-  end
-  
-  def create
-    @checkin = Checkin.new(params[:checkin])
-    
-    #current_user.checkins.push(checkin)
+    checkin = Checkin.new
+    checkin.venue_id = params[:venue_id]
+    checkin.time = "#{params[:date][:hour]}:#{params[:date][:minute]}"
+    schedule_checkin(checkin)
+    current_user.checkins.push(checkin) 
+    redirect_to checkins_url
   end
   
   def venue_search
@@ -40,25 +35,14 @@ class CheckinsController < ApplicationController
   end
   
   def set_time
-    
-  end
-  
-  def edit
-    
-  end
-  
-  def update
-    
+    @venue_id = params[:venue_id]
   end
   
   def destroy
     checkin = Checkin.find(params[:id])
+    unschedule_checkin(checkin)
     checkin.destroy
-
-    respond_to do |format|
-      format.html { redirect_to checkins_url }
-      format.json { head :no_content }
-    end
+    redirect_to checkins_url
   end
   
 end

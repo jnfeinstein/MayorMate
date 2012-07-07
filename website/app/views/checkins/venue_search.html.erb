@@ -24,11 +24,10 @@
   <% @venues["places"].each do |venue| %>
     <%= form_tag({:action => "set_time"}, :method => "get") do %>
     <tr>
-      <% loc = venue.location %>
       <%= hidden_field_tag(:venue_id, venue.id) %>
       <td><%= submit_tag("Select") %></td>
       <td><%= image_tag(venue.icon) %></td>  
-      <td><%= "#{venue.name}, #{loc.address}, #{loc.city}, #{loc.state}" %></td>
+      <td><%= "#{venue.name}, #{get_venue_address(venue)}" %></td>
     </tr>
     <% end %>
   <% end %>

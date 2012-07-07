@@ -22,11 +22,9 @@ ActiveRecord::Schema.define(:version => 20120706072552) do
   add_index "access_codes", ["user_id"], :name => "index_access_codes_on_user_id", :unique => true
 
   create_table "checkins", :force => true do |t|
-    t.string   "venue"
-    t.string   "address"
     t.string   "venue_id"
     t.string   "time"
-    t.boolean  "enabled"
+    t.string   "job_id"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
