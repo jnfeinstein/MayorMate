@@ -1,0 +1,3 @@
+include CheckinsHelper
+
+schedule_all_checkins

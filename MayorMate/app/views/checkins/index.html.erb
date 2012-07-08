@@ -1,0 +1,25 @@
+<% if @checkins.empty? %>
+  <p>No checkins scheduled!</p>
+<% else %>
+  <table>
+    <tr>
+      <th>Venue</th>
+      <th>Time</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @checkins.each do |checkin| %>
+    <% venue = get_checkin_venue(checkin)%>
+    <tr>
+      <td><%= venue.name %></td>
+      <td><%= checkin.time %></td>
+      <td><%= link_to 'Details', checkin %></td>
+      <td><%= link_to 'Destroy', checkin, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+  <br />
+<% end %>
+
+<%= link_to 'New Checkin', venue_search_checkins_path %>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MayorMate</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<br/ ><br/ >
+<% if !get_user.nil? %>
+  <%= link_to "Home", checkins_url %>
+  <%= link_to "Logout", logout_users_path %>
+<% end %>
+</body>
+</html>

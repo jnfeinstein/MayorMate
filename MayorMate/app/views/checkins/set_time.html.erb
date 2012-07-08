@@ -1,0 +1,15 @@
+<%= form_tag({:action => "new"}, :method => "get") do %>
+<%= hidden_field_tag(:venue_id, @venue_id) %>
+<table>
+  <tr>
+    <td><%= label_tag(:time, "Time:") %></td>
+    <td><%= select_time(Time.now + 3600, :minute_step => 1) %></td>
+  </tr>
+</table>
+
+<div class="actions">
+  <%= submit_tag("Submit") %>
+</div>
+  
+<% end %>
+
