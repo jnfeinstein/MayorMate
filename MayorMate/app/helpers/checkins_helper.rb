@@ -22,7 +22,7 @@ module CheckinsHelper
   end
   
   def perform_checkin(checkin)
-    foursquare = Foursquare::Base.new(get_user.access_token)
+    foursquare = Foursquare::Base.new(checkin.user.access_token)
     venue = get_checkin_venue(checkin)
     foursquare.checkins.add(
       :venueId => checkin.venue_id, 
