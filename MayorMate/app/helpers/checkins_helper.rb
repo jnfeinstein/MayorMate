@@ -6,7 +6,7 @@ module CheckinsHelper
   @@scheduler = Rufus::Scheduler.start_new 
     
   def get_checkin_venue(checkin)
-    foursquare = Foursquare::Base.new(get_user.access_token)
+    foursquare = Foursquare::Base.new(checkin.user.access_token)
     return foursquare.venues.find(checkin.venue_id)
   end
   
