@@ -34,8 +34,6 @@ module CheckinsHelper
   
   def schedule_checkin(checkin)
     job = @@scheduler.every '1d', :first_at => Chronic.parse(checkin.time) do
-    #job = $scheduler.every '30s' do
-      logger.debug "Checking in to #{checkin.venue_id}"
       perform_checkin(checkin)
     end
     checkin.job_id = job.job_id
