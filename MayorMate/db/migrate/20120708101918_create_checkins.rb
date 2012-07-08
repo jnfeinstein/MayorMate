@@ -1,7 +1,7 @@
 class CreateCheckins < ActiveRecord::Migration
   def change
     create_table :checkins do |t|
-      t.integer :count
+      t.integer :count, :default => 0
       t.string :job_id
       t.string :time
       t.string :venue_id
