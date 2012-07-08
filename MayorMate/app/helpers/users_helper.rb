@@ -9,7 +9,10 @@ module UsersHelper
   end
   
   def get_user
-    return User.find(session[:user])
+    if session[:user].nil?
+      return nil
+    else
+      return User.find(session[:user])
+    end
   end
-  
 end
