@@ -1,7 +1,11 @@
 module UsersHelper
   
   def set_user(this_user)
-    session[:user] = this_user.id
+    if !this_user.nil?
+      session[:user] = this_user.id
+    else
+      session[:user] = nil
+    end
   end
   
   def get_user
