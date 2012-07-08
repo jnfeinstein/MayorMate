@@ -1,6 +1,7 @@
 module CheckinsHelper
   
   include Geokit::Geocoders
+  include UsersHelper
   
   @@scheduler = Rufus::Scheduler.start_new 
     
