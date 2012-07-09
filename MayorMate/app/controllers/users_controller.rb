@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
   
   def login
-    access_token = get_access_token
+    access_token = get_access_token(params[:code])
     this_user = User.where(:access_token => access_token).first
     if this_user.nil?
       this_user = User.new(:access_token => access_token)
