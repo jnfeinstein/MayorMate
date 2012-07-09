@@ -6,8 +6,7 @@ class UsersController < ApplicationController
   OAuthID = "YTRDZFMWBREGWX4MUUAKUPFDZXU3TUVIWZ3HQY3UGITW1K3Y".freeze
   OAuthSecret = "AKBXY1M3PKL05TR0BHO1BE34W0U5OCWU54OOZZGU5503TMK0".freeze
   def landing
-    foursquare = Foursquare::Base.new(OAuthID,OAuthSecret)
-    redirect_to foursquare.authorize_url(CallbackUrl)
+    redirect_to get_authorize_url
   end
   
   def login

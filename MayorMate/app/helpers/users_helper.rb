@@ -15,4 +15,10 @@ module UsersHelper
       return User.find(session[:user])
     end
   end
+  
+  def get_authorize_url
+    foursquare = Foursquare::Base.new(OAuthID,OAuthSecret)
+    return foursquare.authorize_url(CallbackUrl)
+  end
+  
 end
