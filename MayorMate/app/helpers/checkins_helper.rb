@@ -39,7 +39,7 @@ module CheckinsHelper
   end
   
   def schedule_checkin(checkin)
-    job = @@scheduler.every '1d', :first_at => Chronic.parse(checkin.time) do
+    job = @@scheduler.every '1d', :first_at => Chronic.parse("next #{checkin.time}") do
       perform_checkin(checkin)
     end
     checkin.job_id = job.job_id
