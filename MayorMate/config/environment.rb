@@ -1,5 +1,3 @@
-include CheckinsHelper
-
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 
@@ -7,5 +5,6 @@ require File.expand_path('../application', __FILE__)
 MayorMate::Application.initialize!
 
 config.after_initialize do
+  include CheckinsHelper
   schedule_all_checkins
 end
