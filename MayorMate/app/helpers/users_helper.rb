@@ -28,4 +28,8 @@ module UsersHelper
     return get_oath_foursquare.authorize_url(@@CallbackUrl)
   end
   
+  def get_access_token(code)
+    return get_oath_foursquare.access_token(code, @@CallbackUrl)
+  end
+  
 end
