@@ -47,6 +47,9 @@ module CheckinsHelper
   end
   
   def schedule_all_checkins
+    if !Checkin.table_exists?
+      return
+    end
     Checkin.all.each do |checkin|
       schedule_checkin(checkin)
     end
