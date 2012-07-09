@@ -54,7 +54,5 @@ module CheckinsHelper
   def unschedule_checkin(checkin)
     @@scheduler.unschedule(checkin.job_id)
   end
-  
-  # Startup
-  schedule_all_checkins
+
 end
