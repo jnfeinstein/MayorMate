@@ -34,9 +34,5 @@ MayorMate::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
-  config.after_initialize do
-    include CheckinsHelper
-    schedule_all_checkins
-  end
+
 end

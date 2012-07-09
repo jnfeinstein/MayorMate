@@ -3,8 +3,13 @@ module CheckinsHelper
   include Geokit::Geocoders
   include UsersHelper
   
-  @@scheduler = Rufus::Scheduler.start_new 
-    
+  @@scheduler = nil
+  
+  def init_scheduler
+    @@scheduler = Rufus::Scheduler.start_new
+    schedule_all_checkins  
+  end
+  
   def get_checkin_venue(checkin)
     foursquare = Foursquare::Base.new(checkin.user.access_token)
     return foursquare.venues.find(checkin.venue_id)

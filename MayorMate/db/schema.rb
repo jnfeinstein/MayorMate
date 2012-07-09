@@ -13,13 +13,13 @@
 ActiveRecord::Schema.define(:version => 20120708101918) do
 
   create_table "checkins", :force => true do |t|
-    t.integer  "count"
+    t.integer  "count",      :default => 0
     t.string   "job_id"
     t.string   "time"
     t.string   "venue_id"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "checkins", ["user_id"], :name => "index_checkins_on_user_id"
