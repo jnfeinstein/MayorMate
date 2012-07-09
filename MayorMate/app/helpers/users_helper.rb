@@ -20,9 +20,12 @@ module UsersHelper
     end
   end
   
+  def get_oath_foursquare
+    return Foursquare::Base.new(@@OAuthID,@@OAuthSecret)
+  end
+  
   def get_authorize_url
-    foursquare = Foursquare::Base.new(@@OAuthID,@@OAuthSecret)
-    return foursquare.authorize_url(@@CallbackUrl)
+    return get_oath_foursquare.authorize_url(@@CallbackUrl)
   end
   
 end

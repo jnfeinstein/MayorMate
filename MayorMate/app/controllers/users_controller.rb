@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
   
   def login
-    foursquare = Foursquare::Base.new(OAuthID,OAuthSecret)
+    foursquare = get_oath_foursquare
     access_token = foursquare.access_token(params[:code], CallbackUrl)
     this_user = User.where(:access_token => access_token).first
     if this_user.nil?
