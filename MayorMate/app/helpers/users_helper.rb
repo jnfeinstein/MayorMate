@@ -1,5 +1,9 @@
 module UsersHelper
   
+  @@CallbackUrl = "http://joelf.me/users/login".freeze
+  @@OAuthID = "YTRDZFMWBREGWX4MUUAKUPFDZXU3TUVIWZ3HQY3UGITW1K3Y".freeze
+  @@OAuthSecret = "AKBXY1M3PKL05TR0BHO1BE34W0U5OCWU54OOZZGU5503TMK0".freeze
+  
   def set_user(this_user)
     if !this_user.nil?
       session[:user] = this_user.id
@@ -17,8 +21,8 @@ module UsersHelper
   end
   
   def get_authorize_url
-    foursquare = Foursquare::Base.new(OAuthID,OAuthSecret)
-    return foursquare.authorize_url(CallbackUrl)
+    foursquare = Foursquare::Base.new(@@OAuthID,@@OAuthSecret)
+    return foursquare.authorize_url(@@CallbackUrl)
   end
   
 end

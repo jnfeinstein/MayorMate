@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
   
   include UsersHelper
-  
-  CallbackUrl = "http://joelf.me/users/login".freeze
-  OAuthID = "YTRDZFMWBREGWX4MUUAKUPFDZXU3TUVIWZ3HQY3UGITW1K3Y".freeze
-  OAuthSecret = "AKBXY1M3PKL05TR0BHO1BE34W0U5OCWU54OOZZGU5503TMK0".freeze
+
   def landing
     redirect_to get_authorize_url
   end
