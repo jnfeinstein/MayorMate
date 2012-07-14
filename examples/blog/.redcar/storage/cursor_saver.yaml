@@ -1,0 +1,80 @@
+--- 
+cursor_positions: 
+  - :path: app/helpers/application_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-01 21:36:21 -07:00
+  - :path: app/helpers/posts_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-01 21:51:59 -07:00
+  - :path: config.ru
+    :cursor_offset: 0
+    :timestamp: 2012-07-01 21:36:21 -07:00
+  - :path: Gemfile.lock
+    :cursor_offset: 294
+    :timestamp: 2012-07-01 21:42:17 -07:00
+  - :path: app/models/tag.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-02 10:43:09 -07:00
+  - :path: config/routes.rb
+    :cursor_offset: 84
+    :timestamp: 2012-07-02 00:52:00 -07:00
+  - :path: app/views/home/index.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/views/posts/index.html.erb
+    :cursor_offset: 138
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/controllers/comments_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: db/migrate/20120702045159_create_posts.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: db/schema.rb
+    :cursor_offset: 993
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/views/posts/_form.html.erb
+    :cursor_offset: 490
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/views/posts/new.html.erb
+    :cursor_offset: 75
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/views/comments/_comment.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/views/comments/_form.html.erb
+    :cursor_offset: 309
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/views/posts/show.html.erb
+    :cursor_offset: 213
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/views/posts/edit.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/controllers/application_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/controllers/posts_controller.rb
+    :cursor_offset: 375
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: db/migrate/20120702174309_create_tags.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: db/migrate/20120702074920_create_comments.rb
+    :cursor_offset: 192
+    :timestamp: 2012-07-05 03:20:51 -07:00
+    :selection_offset: 225
+    :block_selection_mode: false
+  - :path: app/models/comment.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/models/post.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: Gemfile
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+  - :path: app/controllers/home_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-05 03:20:51 -07:00
+files_to_retain: 0

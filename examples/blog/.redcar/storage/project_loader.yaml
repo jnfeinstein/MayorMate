@@ -1,0 +1,10 @@
+--- 
+open_files: 
+  - app/controllers/application_controller.rb
+  - app/controllers/posts_controller.rb
+  - db/migrate/20120702174309_create_tags.rb
+  - db/migrate/20120702074920_create_comments.rb
+  - app/models/comment.rb
+  - app/models/post.rb
+  - Gemfile
+  - app/controllers/home_controller.rb
