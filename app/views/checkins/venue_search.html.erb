@@ -30,7 +30,7 @@ function getLocation() {
   <tr>
     <td><%= label_tag(:address, "Address:") %></td>
     <td><%= text_field_tag(:address) %></td>
-    <td><button onclick="getLocation()">Use current location</button></td>
+    <td></td>
   </tr>
 </table>
 
@@ -39,6 +39,7 @@ function getLocation() {
 </div>
   
 <% end %>
+<button onclick="getLocation()">Use current location</button>
 
 <% if @venues && @name && @address%>
 <p><%= "Query for '#{@name}' near '#{@address}':"%></p>
