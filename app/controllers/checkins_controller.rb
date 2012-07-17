@@ -4,7 +4,7 @@ class CheckinsController < ApplicationController
   include CheckinsHelper
   include UsersHelper
 
-  before_filter :check_user
+  #before_filter :check_user
   
   def check_user
     if get_user.nil?

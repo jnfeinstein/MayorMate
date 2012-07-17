@@ -9,7 +9,7 @@ development:
   database: project_development
   pool: 5
   username: postgres
-  password: dolphins
+  password: test
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,15 +19,15 @@ test: &TEST
   encoding: utf8
   database: project_test
   pool: 5
-  username:
-  password:
+  username: postgres
+  password: test
 
   adapter: postgresql
   encoding: utf8
   database: project_production
   pool: 5
-  username:
-  password:
+  username: postgres
+  password: test
 
 cucumber:
   <<: *TEST

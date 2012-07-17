@@ -1,24 +1,3 @@
-<script type="text/javascript">
-function getLocation() {
-  if (navigator.geolocation) {
-    var locationMarker = null;
-    navigator.geolocation.getCurrentPosition{
-      function (position) {
-        alert("POSITION")
-      }
-      function (error) {
-        
-      }
-      {
-        timeout: (5 * 1000),
-        maximumAge: (1000 * 60 * 15),
-        enableHighAccuracy: true
-      }
-    };
-  }
-}
-</script>
-
 <h1>Select a Venue</h1>
 
 <%= form_tag(nil, :method => "get") do %>
@@ -30,7 +9,7 @@ function getLocation() {
   <tr>
     <td><%= label_tag(:address, "Address:") %></td>
     <td><%= text_field_tag(:address) %></td>
-    <td></td>
+    <td><input type="button" id="locate" value="Use current location"></td>
   </tr>
 </table>
 
@@ -39,7 +18,6 @@ function getLocation() {
 </div>
   
 <% end %>
-<button onclick="getLocation()">Use current location</button>
 
 <% if @venues && @name && @address%>
 <p><%= "Query for '#{@name}' near '#{@address}':"%></p>
