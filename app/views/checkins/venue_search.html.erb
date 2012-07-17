@@ -1,6 +1,21 @@
 <script type="text/javascript">
 function getLocation() {
-  
+  if (navigator.geolocation) {
+    var locationMarker = null;
+    navigator.geolocation.getCurrentPosition{
+      function (position) {
+        
+      }
+      function (error) {
+        
+      }
+      {
+        timeout: (5 * 1000),
+        maximumAge: (1000 * 60 * 15),
+        enableHighAccuracy: true
+      }
+    };
+  }
 }
 </script>
 
