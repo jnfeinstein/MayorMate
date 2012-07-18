@@ -5,6 +5,10 @@
     <td><%= label_tag(:time, "Time:") %></td>
     <td><%= select_time(Time.now + 3600, :minute_step => 1) %></td>
   </tr>
+  <tr>
+    <td><%= label_tag(:time_zone, "Time Zone:") %></td>
+    <td><%= time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones) %></td>
+  </tr>
 </table>
 
 <div class="actions">
