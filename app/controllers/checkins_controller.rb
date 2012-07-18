@@ -24,6 +24,7 @@ class CheckinsController < ApplicationController
     checkin = Checkin.new
     checkin.venue_id = params[:venue_id]
     checkin.time = "#{params[:date][:hour]}:#{params[:date][:minute]}"
+    checkin.time_zone = params[:checkin][:time_zone]
     schedule_checkin(checkin)
     get_user.checkins.push(checkin) 
     redirect_to checkins_url

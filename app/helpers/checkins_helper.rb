@@ -39,6 +39,7 @@ module CheckinsHelper
   end
   
   def schedule_checkin(checkin)
+    Chronic.time_class = ActiveSupport::TimeZone.create(checkin.time_zone)
     job = @@scheduler.every '1d', :first_at => Chronic.parse("next #{checkin.time}") do
       perform_checkin(checkin)
     end
