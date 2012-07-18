@@ -24,3 +24,4 @@ doc/
 # Databases
 *.db
 log
+*.sqlite3
