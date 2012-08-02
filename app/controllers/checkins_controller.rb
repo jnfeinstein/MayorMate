@@ -4,7 +4,7 @@ class CheckinsController < ApplicationController
   include CheckinsHelper
   include UsersHelper
 
-  #before_filter :check_user
+  before_filter :check_user
   
   def check_user
     if get_user.nil?
@@ -21,12 +21,15 @@ class CheckinsController < ApplicationController
   end
   
   def new
-    checkin = Checkin.new
-    checkin.venue_id = params[:venue_id]
-    checkin.time = "#{params[:date][:hour]}:#{params[:date][:minute]}"
-    checkin.time_zone = params[:checkin][:time_zone]
+    venue_id = params[:venue_id]
+    time = "#{params[:date][:hour]}:#{params[:date][:minute]}"
+    time_zone = params[:checkin][:time_zone]
+    checkin = get_user.checkins.create(
+    :venue_id => venue_id,
+    :time => time,
+    :time_zone => time_zone)
+    checkin.save
     schedule_checkin(checkin)
-    get_user.checkins.push(checkin) 
     redirect_to checkins_url
   end
   

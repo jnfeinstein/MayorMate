@@ -23,11 +23,11 @@
     <td><%= @checkin.count %></td>
   </tr>
   <tr>
-    <td>Last</td>
-    <td><%= job.last %></td>
-  </tr>
-  <tr>
     <td>Next</td>
-    <td><%= job.next_time %></td>  
+    <% if job.nil? %>
+      <td>None scheduled</td>
+    <% else %>
+      <td><%= job.run_at %></td>  
+    <% end %>
   </tr>
 </table>

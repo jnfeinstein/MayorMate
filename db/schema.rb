@@ -10,12 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708101918) do
+ActiveRecord::Schema.define(:version => 20120727041116) do
 
   create_table "checkins", :force => true do |t|
     t.integer  "count",      :default => 0
     t.string   "job_id"
     t.string   "time"
+    t.string   "time_zone"
     t.string   "venue_id"
     t.integer  "user_id"
     t.datetime "created_at",                :null => false
@@ -23,6 +24,22 @@ ActiveRecord::Schema.define(:version => 20120708101918) do
   end
 
   add_index "checkins", ["user_id"], :name => "index_checkins_on_user_id"
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "users", :force => true do |t|
     t.string   "access_token"

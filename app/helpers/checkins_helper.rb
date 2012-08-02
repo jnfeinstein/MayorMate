@@ -3,13 +3,6 @@ module CheckinsHelper
   include Geokit::Geocoders
   include UsersHelper
   
-  @@scheduler = nil
-  
-  def init_scheduler
-    @@scheduler = Rufus::Scheduler.start_new
-    schedule_all_checkins  
-  end
-  
   def get_checkin_venue(checkin)
     foursquare = Foursquare::Base.new(checkin.user.access_token)
     return foursquare.venues.find(checkin.venue_id)
@@ -26,42 +19,24 @@ module CheckinsHelper
     return res.ll
   end
   
-  def perform_checkin(checkin)
-    foursquare = Foursquare::Base.new(checkin.user.access_token)
-    venue = get_checkin_venue(checkin)
-    foursquare.checkins.add(
-      :venueId => checkin.venue_id, 
-      :ll => get_venue_gps_ll(venue),
-      :llAcc => 1,
-      :broadcast => "public")
-    checkin.count += 1
-    checkin.save
-  end
-  
   def schedule_checkin(checkin)
-    Chronic.time_class = ActiveSupport::TimeZone.create(checkin.time_zone)
-    job = @@scheduler.every '1d', :first_at => Chronic.parse("next #{checkin.time}") do
-      perform_checkin(checkin)
-    end
-    checkin.job_id = job.job_id
-    checkin.save
-  end
-  
-  def schedule_all_checkins
-    if !Checkin.table_exists?
-      return
-    end
-    Checkin.all.each do |checkin|
-      schedule_checkin(checkin)
-    end
+    #Chronic.time_class = ActiveSupport::TimeZone.create(checkin.time_zone)
+    #time = Chronic.parse("#{checkin.time}")
+    #job = Delayed::Job.enqueue(ScheduledCheckin.new(checkin), :run_at => time)
+    #checkin.job_id = job.id
+    #checkin.save
+    ScheduledCheckin.new(checkin)
   end
   
   def get_scheduled_job(checkin)
-    return @@scheduler.find(checkin.job_id)
+    return Delayed::Job.find_by_id(checkin.job_id)
   end
   
   def unschedule_checkin(checkin)
-    @@scheduler.unschedule(checkin.job_id)
+    job = get_scheduled_job(checkin)
+    if !job.nil?
+      get_scheduled_job(checkin).destroy
+    end
   end
-
+  
 end
