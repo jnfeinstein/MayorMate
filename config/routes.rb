@@ -13,6 +13,12 @@ MayorMate::Application.routes.draw do
       get 'set_time'
     end
   end
+  resources :locations do
+    collection do
+      get 'to_address'
+      get 'to_gps'
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
